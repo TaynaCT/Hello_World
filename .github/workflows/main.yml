@@ -43,7 +43,7 @@ jobs:
           # Provide Checkmarx Password
           checkmarx_password: Checkmarx123!
           # Provide Checkmarx Client Secret
-          checkmarx_client_secret: ${{ secrets.CX_SAST_SECRET }}
+          #checkmarx_client_secret: ${{ secrets.CX_SAST_SECRET }}
           # Select a Checkmarx Project
           project: "Git_Hello_World"
           # Select an Application Name used by downstream bug tracker systems
