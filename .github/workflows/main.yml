@@ -37,13 +37,13 @@ jobs:
           # Provide Checkmarx URL
           checkmarx_url: http://cxsast.com
           # Select a Checkmarx Team
-          team: "/CxServer/"
+          team: "/CxServer"
           # Provide Checkmarx Username
           checkmarx_username: admin
           # Provide Checkmarx Password
           checkmarx_password: Checkmarx123!
           # Provide Checkmarx Client Secret
-          checkmarx_client_secret: CX_SAST_SECRET
+          checkmarx_client_secret: ${{ secrets.CX_SAST_SECRET }}
           # Select a Checkmarx Project
           project: "Git_Hello_World"
           # Select an Application Name used by downstream bug tracker systems
