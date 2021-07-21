@@ -37,7 +37,7 @@ jobs:
           # Provide Checkmarx URL
           checkmarx_url: http://cxsast.com
           # Select a Checkmarx Team
-          team: "/CxServer"
+          team: /CxServer
           # Provide Checkmarx Username
           checkmarx_username: admin
           # Provide Checkmarx Password
@@ -61,5 +61,5 @@ jobs:
           # GitHub API Token
           github_token: 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
           # Vulnerability Scanners (sast, sca, ast, cxgo)
-          #scanners: # default is     
+          scanners: sast
      
