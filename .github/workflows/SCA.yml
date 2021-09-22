@@ -56,6 +56,6 @@ jobs:
           sca_username: ttinoco
           # Provide SCA Password
           sca_password: "#TcT4815162342"
-          params: --sca.team=/CxServer1/TesterTeam1/t01
+          params: --sca.team=/CxServer/TesterTeam1/t01
           
           
