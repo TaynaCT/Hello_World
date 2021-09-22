@@ -40,7 +40,7 @@ jobs:
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
         with:        
           team: "/CxServer/Tester Team/T01"
-          project: JavaVulnerableLab
+          project: HelloWorld
           # GitHub API Token
           github_token: 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
           # Vulnerability Scanners (sast, sca, ast, cxgo)
