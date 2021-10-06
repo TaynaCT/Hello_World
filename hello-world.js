@@ -5,6 +5,8 @@ console.log(user);
 
 
 var x = document.getElementById("demo");
+var longitude;
+var latitude;
 
 function getLocation() {
   if (navigator.geolocation) {
@@ -15,6 +17,15 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+	longitude = position.coords.longitude;
+	latitude = position.coords.latitude;
+	
+  x.innerHTML = "Latitude: " + latitude +
+  "<br>Longitude: " + longitude;
 }
+
+
+console.log(password + x);
+
+//Some Coment
+
