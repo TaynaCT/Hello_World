@@ -39,8 +39,8 @@ jobs:
         # uses: checkmarx-ts/checkmarx-cxflow-github-action@fe2a395cbbee31268470d92b6c53ebc483005f0f
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.1
         with:        
-          team: "/CxServer/Tester Team/T01"
-          project: JavaVulnerableLab
+          # team: /CxServer/TesterTeam/t01
+          project: HelloWorld_4
           # GitHub API Token
           github_token: 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
           # Vulnerability Scanners (sast, sca, ast, cxgo)
@@ -56,4 +56,6 @@ jobs:
           sca_username: ttinoco
           # Provide SCA Password
           sca_password: "#TcT4815162342"
+          params: --sca.team=/CxServer/TesterTeam1/t01
+          
           
