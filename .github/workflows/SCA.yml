@@ -42,7 +42,7 @@ jobs:
           # team: /CxServer/TesterTeam/t01
           project: HelloWorld_4
           # GitHub API Token
-          github_token: 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
+          github_token: ${{ secrets.GH_TOKEN }}
           # Vulnerability Scanners (sast, sca, ast, cxgo)
           scanners: sca          
           sca_api_url: https://api-sca.checkmarx.net
@@ -56,6 +56,6 @@ jobs:
           sca_username: ttinoco
           # Provide SCA Password
           sca_password: "#TcT4815162342"
-          params: --sca.team=/CxServer/TesterTeam1/t01
+          params: --sca.team=/CxServer
           
           
