@@ -55,7 +55,7 @@ jobs:
           # Provide SCA Username
           sca_username: ttinoco
           # Provide SCA Password
-          sca_password: "#TcT4815162342"
+          sca_password: ${{ secrets.CX_SCA_PASSWORD }}
           params: --sca.team=/CxServer
           
           
