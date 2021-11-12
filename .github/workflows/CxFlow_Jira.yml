@@ -35,7 +35,7 @@ jobs:
           # Select an Application Name used by downstream bug tracker systems
           app: HelloWorld
           # GitHub API Token
-          github_token: ${{ secrets.GH_TOKEN }}
+          #github_token: ${{ secrets.GH_TOKEN }}
           # Vulnerability Scanners (sast, sca, ast, cxgo)
           #------ SAST ------
           #scanners: sast
@@ -64,7 +64,7 @@ jobs:
           sca_username: ${{ secrets.CX_SCA_USERNAME }}
           # Provide SCA Password
           sca_password: ${{ secrets.CX_SCA_PASSWORD }}
-          #params: --sca.team=/CxServer
-          params: --include-sources=false  --bug-tracker=jira --config=cx.config --repo-name=HelloWorld --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
+          bug_tracker: JIRA          
+          params: --sca.team=/CxServer/TesterTeam/t01 --sca.include-sources=false --repo-name=HelloWorld --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
           
           
