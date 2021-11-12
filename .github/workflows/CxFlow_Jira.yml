@@ -65,6 +65,6 @@ jobs:
           # Provide SCA Password
           sca_password: ${{ secrets.CX_SCA_PASSWORD }}
           bug_tracker: JIRA          
-          params: --sca.team=/CxServer/TesterTeam/t01 --sca.include-sources=false --repo-name=HelloWorld --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
+          params: --sca.team=/CxServer/TesterTeam/t01 --sca.include-sources=false --repo-name=HelloWorld --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}} --logging.level.com.checkmarx.flow.custom=debug --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug
           
           
