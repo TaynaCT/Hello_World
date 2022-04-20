@@ -29,4 +29,10 @@ console.log(password + x);
 
 //Some Coment
 
+<<<<<<< Updated upstream
 //helooo
+=======
+
+//local
+
+>>>>>>> Stashed changes
