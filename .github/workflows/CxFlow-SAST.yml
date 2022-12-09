@@ -1,12 +1,12 @@
-# This is a basic workflow to help you get started with Actions
+#This is a basic work flow that integrates the repository with SAST through CxFlow
 
-name: CxFlow
+name: CxFlow-SAST
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -38,9 +38,9 @@ jobs:
           #github_token: ${{ secrets.GH_TOKEN }}
           # Vulnerability Scanners (sast, sca, ast, cxgo)
           #------ SAST ------
-          #scanners: sast
+          scanners: sast
           # Provide Checkmarx URL
-          #checkmarx_url: ${{secrets.CHECKMARX_URL}}
+          checkmarx_url: ${{ secrets.SAST_URL }}
           # Provide team
           #team: /CxServer/SP/
           # Provide Checkmarx Username
@@ -50,22 +50,9 @@ jobs:
           # Provide Checkmarx Client Secret
           #checkmarx_client_secret: ${{secrets.CHECKMARX_CLIENT_SECRET}}
           # Select a Checkmarx Project
-          #project: HelloWorld-GitHub-action
-          #------ SCA ------
-          scanners: sca          
-          sca_api_url: https://api-sca.checkmarx.net
-          # Provide SCA APP URL
-          sca_app_url: https://sca.checkmarx.net
-          # Provide SCA Access Control URL
-          sca_access_control_url: https://platform.checkmarx.net    
-          # Provide SCA Tenant
-          sca_tenant: ${{ secrets.CX_SCA_TENANT }}
-          # Provide SCA Username
-          sca_username: ${{ secrets.CX_SCA_USERNAME }}
-          # Provide SCA Password
-          sca_password: ${{ secrets.CX_SCA_PASSWORD }}          
+          #project: HelloWorld-GitHub-action          
           bug_tracker: JIRA          
-          params: --sca.filter-severity=MEDIUM --sca.team=/CxServer/TesterTeam/t01 --sca.include-sources=false --config=cx.config --repo-name=HelloWorld --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
+          params: --config=cx.config --repo-name=${{ github.repository }} --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
           #Logs parameters
           #--logging.level.com.checkmarx.flow.custom=debug --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug
           
