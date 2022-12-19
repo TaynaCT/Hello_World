@@ -25,4 +25,4 @@ jobs:
           cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
           branch: ${{ github.ref }}
           additional_params: --sast-preset-name "Checkmarx Express" --scan-types sast --file-filter !*README*,!**/app/**hello-world.js
-          #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter !*README*, !**/**/app/*hello-world.js
+          #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter !*README*, !**/**/app/app-hello-world.js
