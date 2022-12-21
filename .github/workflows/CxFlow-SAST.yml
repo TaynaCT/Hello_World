@@ -45,6 +45,7 @@ jobs:
          #---Optional params
          break_build: false
          settings-override: true
+         forceScan: true
          bug_tracker: GitHub
          params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/.json, .*\/.md"
                  --namespace=${{ github.repository_owner }} 
