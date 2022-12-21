@@ -45,13 +45,19 @@ jobs:
          #---Optional params
          break_build: false
          settings-override: true
-         bug_tracker: GitHub,GITHUBPULL           
+         bug_tracker: GitHub
          params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/.json, .*\/.md"
                  --namespace=${{ github.repository_owner }} 
                  --repo-name=${{ github.event.repository.name }} 
                  --branch=${{ github.ref }} 
                  --cx-flow.filterSeverity 
-                 --cx-flow.filterCategory  
+                 --cx-flow.filterCategory                   
+                 --logging.level.com.checkmarx.flow.custom=debug 
+                 --logging.level.com.checkmarx.flow.service=debug 
+                 --logging.level.com.checkmarx.flow.utils=debug 
+                 --logging.level.com.checkmarx.sdk.service=debug
+                 
+                 
                  
          
          #------ Other examples of configuration
