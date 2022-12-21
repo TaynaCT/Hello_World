@@ -27,5 +27,6 @@ function showPosition(position) {
 
 console.log(password + x);
 
-//Some Coment
+// This is a new comment
+// HEllo world!! 
 
