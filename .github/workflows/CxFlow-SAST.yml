@@ -10,49 +10,47 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
     runs-on: self-hosted
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       #Location app/cx-flow.jar started by root in /github/workspace
-      - name: Set Certigfcate
-        run: 'ls ${{ github.workspace }}'
-      
+     #- name: Set Certificate
+     #  run: 'ls ${{ github.workspace }}'
+     #
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-#     - uses: actions/checkout@v2
-#       #CxFlow Action
-#     - name: CxFlow SAST Action
-#       # You may pin to the exact commit or the version.
-#       
-#       uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3        
-#       with:          
-#         project: ${{ github.repository }}
-#         # Select an Application Name used by downstream bug tracker systems
-#         app: ${{ github.repository }}
-#         # GitHub API Token
-#         #github_token: ${{ secrets.GH_TOKEN }}
-#         # Vulnerability Scanners (sast, sca, ast, cxgo)
-#         #------ SAST ------
-#         scanners: sast
-#         # Provide Checkmarx URL
-#         checkmarx_url: ${{ secrets.CXSAST_URL }}
-#         # Provide team
-#         team: /CxServer/Git
-#         # Provide Checkmarx Username
-#         checkmarx_username: ${{secrets.CXSAST_USER_NAME}}
-#         # Provide Checkmarx Password
-#         checkmarx_password: ${{secrets.CXSAST_USER_PASSWORD}}
-#         # Provide Checkmarx Client Secret
-#         #checkmarx_client_secret: ${{secrets.CHECKMARX_CLIENT_SECRET}}
-#         #bug_tracker: JIRA          
-#         #params: --config=cx.config --repo-name=${{ github.repository }} --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
-#         #Logs parameters
-#         #--logging.level.com.checkmarx.flow.custom=debug --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug
-#         
-#         
+      - uses: actions/checkout@v2
+        #CxFlow Action
+      - name: CxFlow SAST Action
+        # You may pin to the exact commit or the version.
+        
+        uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.3        
+        with:          
+         project: ${{ github.repository }}
+         # Select an Application Name used by downstream bug tracker systems
+         app: ${{ github.repository }}
+         # GitHub API Token
+         #github_token: ${{ secrets.GH_TOKEN }}
+         # Vulnerability Scanners (sast, sca, ast, cxgo)
+         #------ SAST ------
+         scanners: sast
+         # Provide Checkmarx URL
+         checkmarx_url: ${{ secrets.CXSAST_URL }}
+         # Provide team
+         team: /CxServer/Git
+         # Provide Checkmarx Username
+         checkmarx_username: ${{secrets.CXSAST_USER_NAME}}
+         # Provide Checkmarx Password
+         checkmarx_password: ${{secrets.CXSAST_USER_PASSWORD}}
+         # Provide Checkmarx Client Secret
+         #checkmarx_client_secret: ${{secrets.CHECKMARX_CLIENT_SECRET}}
+         #bug_tracker: JIRA          
+         #params: --config=cx.config --repo-name=${{ github.repository }} --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
+         #Logs parameters
+         #--logging.level.com.checkmarx.flow.custom=debug --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug
+         
+         
