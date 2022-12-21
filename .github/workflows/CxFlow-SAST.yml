@@ -47,6 +47,7 @@ jobs:
          settings-override: true
          forceScan: true
          bug_tracker: GitHub
+         incremental: false
          params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/.json, .*\/.md"
                  --namespace=${{ github.repository_owner }} 
                  --repo-name=${{ github.event.repository.name }} 
