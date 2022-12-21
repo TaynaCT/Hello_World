@@ -3,10 +3,10 @@ name: CxFlow-SAST
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  #push:
-  #  branches: [ main ]
-  #pull_request:
-  #  branches: [ main ]
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -42,9 +42,17 @@ jobs:
          checkmarx_password: ${{secrets.CXSAST_USER_PASSWORD}}
          # Provide Checkmarx Client Secret
          checkmarx_client_secret: ${{secrets.CXSAST_CLIENT_SECRET}}
-         bug_tracker: GitHub    
-         params: --cx.settings-override=true 
-                 --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/.json, .*\/.md"
+         #---Optional params
+         break_build: false
+         settings-override: true
+         bug_tracker: GitHub,GITHUBPULL           
+         params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/.json, .*\/.md"
+                 --namespace=${{ github.repository_owner }} 
+                 --repo-name=${{ github.event.repository.name }} 
+                 --branch=${{ github.ref }} 
+                 --cx-flow.filterSeverity 
+                 --cx-flow.filterCategory  
+                 
          
          #------ Other examples of configuration
          #params: --config=cx.config --repo-name=${{ github.repository }} --namespace=TaynaCT --branch=master --jira.url=${{secrets.JIRA_URL}} --jira.username=${{secrets.JIRA_USER}} --jira.token=${{secrets.JIRA_TOKEN}}
