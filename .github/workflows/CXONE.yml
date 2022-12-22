@@ -26,7 +26,7 @@ jobs:
           branch: ${{ github.ref }}
           additional_params:  --scan-types sast           
                               --sast-preset-name "Checkmarx Express"            
-                              --file-filter '!*README.md,!*app-hello-world*.js'
+                              #--file-filter '!*README.md,!*app-hello-world*.js'
                               #--file-filter '!*README.md,!*app/*hello-world.js'
           
           
