@@ -1,0 +1,12 @@
+{
+    "cx.server": {
+        "url": "http://cxsast-aws/",
+        "alias": "cxsast-aws",
+        "username": "admin",
+        "password": "R1Dr6EuXlKPTlSyP8f/VHwfXAovuiwGog2lZ",
+        "project_id": 26,
+        "team_id": 5,
+        "project_name": "TaynaCT-Hello_World"
+    },
+    "cx.folderExclusions": "cvs, .svn, .hg, .git, .bzr, bin, obj, backup, .idea, .vscode, node_modules"
+}
