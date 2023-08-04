@@ -25,7 +25,7 @@ jobs:
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.9
         with:
           # Vulnerability Scanners (sast, sca, cxgo)
-          scanners: sast, sca
+          scanners: sast
           # Provide Checkmarx URL
           checkmarx_url: ${{ secrets.CXSAST_URL }}
           # Select a Checkmarx Team
@@ -37,9 +37,9 @@ jobs:
           # Provide Checkmarx Client Secret
           checkmarx_client_secret: ${{secrets.CXSAST_CLIENT_SECRET}}
           # Select a Checkmarx Project
-          project: ${{ github.repository_owner }}-${{ github.event.repository.name }} #${{ github.repository }}
+          project: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }} #${{ github.repository }}
           # Select an Application Name used by downstream bug tracker systems
-          app: ${{ github.repository_owner }}-${{ github.event.repository.name }}
+          app: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }}
           # Select a Checkmarx Preset
           preset: High and Medium # optional, default is High and Medium
           # Break build based on Checkmarx findings?
