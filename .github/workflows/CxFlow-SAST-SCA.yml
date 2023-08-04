@@ -50,9 +50,9 @@ jobs:
           # Incremental Scans?
           incremental: false # optional, default is true
           # Provide SCA API URL
-          sca_api_url: https://api.scacheckmarx.com # optional, default is https://api.scacheckmarx.com
+          sca_api_url: https://api-sca.checkmarx.net # optional, default is https://api.scacheckmarx.com
           # Provide SCA APP URL
-          sca_app_url: https://sca.checkmarx.com # optional, default is https://sca.scacheckmarx.com
+          sca_app_url: https://sca.checkmarx.net # optional, default is https://sca.scacheckmarx.com
           # Provide SCA Access Control URL
           sca_access_control_url: https://platform.checkmarx.net # optional, default is https://platform.checkmarx.net
           # Provide SCA Tenant
@@ -62,7 +62,7 @@ jobs:
           # Provide SCA Password
           sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
-          params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md" --checkmarx.forceScan=true --checkmarx.cx-branch=true --checkmarx.settings-override=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug
+          params: '--cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md" --checkmarx.forceScan=true --checkmarx.cx-branch=true --checkmarx.settings-override=true --namespace=${{ github.repository_owner }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug'
                   
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
 #          extra_certificates: # optional, default is 
