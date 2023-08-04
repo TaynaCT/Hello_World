@@ -18,6 +18,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:        
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Dump github context
+      - run: echo "REPO_NAME=${{ github.event.repository.name }}"
+        
       - uses: actions/checkout@v2       
       - name: Checkmarx CxFlow Action
         # You may pin to the exact commit or the version.
@@ -62,8 +65,7 @@ jobs:
           sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
           params: --forceScan=true --checkmarx.cx-branch=true --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md,.*\/.png"
-
-                  
+          
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
 #          extra_certificates: # optional, default is 
 #          
