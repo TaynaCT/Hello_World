@@ -23,8 +23,6 @@ jobs:
         # uses: checkmarx-ts/checkmarx-cxflow-github-action@9c07e2adcb17d0fdf60f3184ff53720513ea3c09
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.9
         with:
-          # GitHub API Token
-          github_token: ${{ github.token }} # optional, default is ${{ github.token }}
           # Vulnerability Scanners (sast, sca, cxgo)
           scanners: sast, sca
           # Provide Checkmarx URL
@@ -62,7 +60,7 @@ jobs:
           # Provide SCA Password
           sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
-          params: '--checkmarx.forceScan=true --checkmarx.cx-branch=true --checkmarx.settings-override=true --namespace=${{ github.repository_owner }} --merge-id=${{ github.event.number }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md"'
+          params: --checkmarx.configuration=Default Configuration --checkmarx.forceScan=true --checkmarx.cx-branch=true --checkmarx.settings-override=true --namespace=${{ github.repository_owner }} --merge-id=${{ github.event.number }} --repo-name=${{ github.event.repository.name }} --branch=${{ github.ref }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md"
 
                   
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
