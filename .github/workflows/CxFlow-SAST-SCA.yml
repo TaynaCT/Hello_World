@@ -25,7 +25,7 @@ jobs:
         uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.9
         with:
           # Vulnerability Scanners (sast, sca, cxgo)
-          scanners: sast, sca
+          scanners: sast
           # Provide Checkmarx URL
           checkmarx_url: ${{ secrets.CXSAST_URL }}
           # Select a Checkmarx Team
@@ -37,9 +37,9 @@ jobs:
           # Provide Checkmarx Client Secret
           checkmarx_client_secret: ${{secrets.CXSAST_CLIENT_SECRET}}
           # Select a Checkmarx Project
-          project: ${{ github.repository }}
+          project: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }} #${{ github.repository }}
           # Select an Application Name used by downstream bug tracker systems
-          app: ${{ github.repository }}
+          app: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }}
           # Select a Checkmarx Preset
           preset: High and Medium # optional, default is High and Medium
           # Break build based on Checkmarx findings?
@@ -62,8 +62,7 @@ jobs:
           sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
           params: --forceScan=true --checkmarx.cx-branch=true --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md,.*\/.png"
-
-                  
+          
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
 #          extra_certificates: # optional, default is 
 #          
