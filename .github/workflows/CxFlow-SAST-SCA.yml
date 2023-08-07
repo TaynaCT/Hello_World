@@ -37,7 +37,8 @@ jobs:
           # Provide Checkmarx Client Secret
           checkmarx_client_secret: ${{secrets.CXSAST_CLIENT_SECRET}}
           # Select a Checkmarx Project
-          project: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }} #${{ github.repository }}
+          project: ${{ github.repository }}-${{ github.head_ref }}
+          #project: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }} #${{ github.repository }}
           # Select an Application Name used by downstream bug tracker systems
           app: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.head_ref }}
           # Select a Checkmarx Preset
@@ -45,21 +46,21 @@ jobs:
           # Break build based on Checkmarx findings?
           break_build: false # optional
           # Bug tracker for the scan results.
-          #bug_tracker: GITHUBPULL # optional, default is Sarif
+          bug_tracker: GITHUBPULL # optional, default is Sarif
           # Incremental Scans?
           incremental: false # optional, default is true
           # Provide SCA API URL
-          sca_api_url: https://api-sca.checkmarx.net # optional, default is https://api.scacheckmarx.com
+#          sca_api_url: https://api-sca.checkmarx.net # optional, default is https://api.scacheckmarx.com
           # Provide SCA APP URL
-          sca_app_url: https://sca.checkmarx.net # optional, default is https://sca.scacheckmarx.com
+#          sca_app_url: https://sca.checkmarx.net # optional, default is https://sca.scacheckmarx.com
           # Provide SCA Access Control URL
-          sca_access_control_url: https://platform.checkmarx.net # optional, default is https://platform.checkmarx.net
+#          sca_access_control_url: https://platform.checkmarx.net # optional, default is https://platform.checkmarx.net
           # Provide SCA Tenant
-          sca_tenant: ${{ secrets.CX_SCA_TENANT }}
+#          sca_tenant: ${{ secrets.CX_SCA_TENANT }}
           # Provide SCA Username
-          sca_username: ${{ secrets.CX_SCA_USERNAME }} # optional, default is 
+#          sca_username: ${{ secrets.CX_SCA_USERNAME }} # optional, default is 
           # Provide SCA Password
-          sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
+#          sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
           params: --forceScan=true --checkmarx.cx-branch=true --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md,.*\/.png"
           
