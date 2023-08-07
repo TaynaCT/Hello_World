@@ -61,7 +61,18 @@ jobs:
           # Provide SCA Password
 #          sca_password: ${{ secrets.CX_SCA_PASSWORD }} # optional, default is 
           # Additional CLI parameters
-          params: --forceScan=true --checkmarx.cx-branch=true --namespace=${{ github.repository_owner }} --checkmarx.settings-override=true --repo-name=${{ github.event.repository.name }} --branch=${{ github.head_ref }} --merge-id=${{ github.event.number }} --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md,.*\/.png"
+          params: --forceScan=true
+                  --checkmarx.cx-branch=true
+                  --namespace=${{ github.repository_owner }}
+                  --checkmarx.settings-override=true
+                  --repo-name=${{ github.event.repository.name }}
+                  --branch=${{ github.head_ref }}
+                  --merge-id=${{ github.event.number }}
+                  --cx-flow.break-build=true
+                  --cx-flow.thresholds.high=5
+                  --cx-flow.thresholds.medium=15
+                  --cx-flow.thresholds.low=50
+                  --logging.level.com.checkmarx.flow.service=debug --logging.level.com.checkmarx.flow.utils=debug --logging.level.com.checkmarx.sdk.service=debug --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*,.*\/*.json,.*\/.md,.*\/.png"
           
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
 #          extra_certificates: # optional, default is 
