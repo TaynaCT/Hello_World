@@ -77,12 +77,6 @@ jobs:
           # Subdirectory containing extra X509 certificate files (.crt) to be imported into the CxFlow JRE. Example: \"certificates\"
 #          extra_certificates: # optional, default is 
 #          
-#          # Provide CxGo Client Secret
-#          cxgo_client_secret: # optional, default is 
-#          # Provide CxGo API URL
-#          cxgo_base_url: # optional, default is https://api.checkmarx.net
-#          # Provide CxGo Portal URL
-#          cxgo_portal_url: # optional, default is https://cloud.checkmarx.net
 #          # Java options will be passed to java
 #          java_opts: # optional, default is -XX:MaxRAMPercentage=75.0
 #          # Jira URL
