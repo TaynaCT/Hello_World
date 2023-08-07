@@ -45,7 +45,7 @@ jobs:
           # Break build based on Checkmarx findings?
           break_build: false # optional
           # Bug tracker for the scan results.
-          bug_tracker: GITHUBPULL # optional, default is Sarif
+          bug_tracker: github # optional, default is Sarif
           # Incremental Scans?
           incremental: false # optional, default is true
           # Provide SCA API URL
