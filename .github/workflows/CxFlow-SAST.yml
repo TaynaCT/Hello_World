@@ -44,13 +44,16 @@ jobs:
          # Provide Checkmarx Client Secret
          checkmarx_client_secret: ${{secrets.CXSAST_CLIENT_SECRET}}
          #---Optional params
-         break_build: false                  
+         break_build: true                  
          bug_tracker: GitHub
          incremental: false
          params: --cx-flow.zip-exclude="\.git\/.*,\.github\/.*,apps\/tests\/.*,apps\/docs/.*,apps\/web\/.*, .*\/*.json, .*\/.md"
                  --namespace=${{ github.repository_owner }} 
                  --repo-name=${{ github.event.repository.name }} 
                  --branch=${{ github.ref }} 
+                 --cx-flow.thresholds.high=10
+                 --cx-flow.thresholds.low=20
+                 --cx-flow.thresholds.medium=15                 
                  --cx-flow.filterSeverity 
                  --cx-flow.filterCategory                   
                  --checkmarx.settings-override=true
