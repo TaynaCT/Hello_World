@@ -24,5 +24,4 @@ jobs:
         #CxFlow Action
       - name: CxFlow SAST Action
         run: |            
-            java -version
-            dir
+            "C:\Java\openjdk-20+36_windows-x64_bin\jdk-20\bin\java.exe" -version          
