@@ -23,5 +23,6 @@ jobs:
         
         #CxFlow Action
       - name: CxFlow SAST Action
-        run: |
-            echo "hello"
+        run: |            
+            java -version
+            dir
