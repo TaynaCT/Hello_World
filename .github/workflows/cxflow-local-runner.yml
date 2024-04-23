@@ -25,4 +25,4 @@ jobs:
       - name: CxFlow SAST Action
         run: |            
             C:\Java\openjdk-20+36_windows-x64_bin\jdk-20\bin\java.exe -version
-            C:\Java\openjdk-20+36_windows-x64_bin\jdk-20\bin\java.exe -jar "C:\cxflow\cx-flow-1.7.0.jar"
+            java -jar "C:\cxflow\cx-flow-1.7.0.jar"
