@@ -38,9 +38,6 @@ jobs:
             --checkmarx.base-url="${{ secrets.CXSAST_URL }}" 
             --checkmarx.username="${{ secrets.CXSAST_USER_NAME }}" 
             --checkmarx.password="${{ secrets.CXSAST_USER_PASSWORD }}" 
-            --spring.profiles.active="sast"             
+            --spring.profiles.active="sast" 
             --checkmarx.version="9.6" 
-            --checkmarx.client-id="resource_owner_client" 
-            --checkmarx.client-secret="${{ secrets.CXSAST_CLIENT_SECRET }}" 
-            --checkmarx.scope="access_control_api sast_rest_api" 
             --logging.level.com.checkmarx.*=debug
