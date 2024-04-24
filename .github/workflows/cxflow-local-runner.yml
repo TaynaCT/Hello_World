@@ -38,6 +38,6 @@ jobs:
             --checkmarx.base-url="${{ secrets.CXSAST_URL }}" 
             --checkmarx.username="${{ secrets.CXSAST_USER_NAME }}" 
             --checkmarx.password="${{ secrets.CXSAST_USER_PASSWORD }}" 
-            --spring.profiles.active="sast"            
+            --spring.profiles.active="sast"
             --cx-flow.zip-exclude="\.git/.*, .*\.png"
             --logging.level.com.checkmarx.*=debug
