@@ -3,8 +3,8 @@ name: CxFlow Local Runner
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  #push:
-  #  branches: [ main ]
+  push:
+    branches: [ main ]
   #pull_request:
   #  branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
@@ -30,14 +30,14 @@ jobs:
         run: >                        
             java -jar "C:\cxflow\cx-flow-1.7.0.jar" 
             --scan 
-            --app="${{env.PROJECT_NAME }}" 
+            --app="${{env.PROJECT_NAME }}"
             --cx-project="${{env.PROJECT_NAME }}" 
-            --f="${{ github.workspace }}" 
+            --f="${{ github.workspace }}"  
+            --spring.profiles.active="sast"                                   
             --cx-team="${{env.SAST_TEAM }}" 
             --checkmarx.scan-preset="${{env.SAST_TEAM }}" 
             --checkmarx.base-url="${{ secrets.CXSAST_URL }}" 
             --checkmarx.username="${{ secrets.CXSAST_USER_NAME }}" 
             --checkmarx.password="${{ secrets.CXSAST_USER_PASSWORD }}" 
-            --spring.profiles.active="sast"
-            --cx-flow.zip-exclude="\.git/.*, .*\.png"
+            --cx-flow.zip-include="**/*.java"
             --logging.level.com.checkmarx.*=debug
