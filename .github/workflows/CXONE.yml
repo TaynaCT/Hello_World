@@ -3,8 +3,8 @@ name: Checkmarx One Scan
 on:
   pull_request:
     types:
-      # - opened
-      - closed
+      - opened
+      #- closed
     branches:
       - main
     
