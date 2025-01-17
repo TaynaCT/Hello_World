@@ -10,7 +10,7 @@ on:
     
   pull_request_review:
     types: [submitted]
-    branch:
+    branches:
       - main
   
   # Allows you to run this workflow manually from the Actions tab
