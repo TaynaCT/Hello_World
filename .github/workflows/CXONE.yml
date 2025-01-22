@@ -3,7 +3,7 @@ name: Checkmarx One Scan
 on:
   pull_request:
     types:
-      - opened
+      #- opened
       - closed
     branches:
       - main
@@ -26,8 +26,8 @@ jobs:
           base_uri: https://eu.ast.checkmarx.net
           cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
-          # branch: ${{ github.ref }}
-          branch: ${{ github.head_ref }}
+          branch: ${{ github.ref }}
+          #branch: ${{ github.head_ref }}
           additional_params:  --scan-types sast           
                               --sast-preset-name "Checkmarx Express"
                               --tags "pr:${{ github.ref }}"
