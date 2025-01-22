@@ -15,11 +15,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - name: Pull Request Performed
-        uses: |
-          echo "Github_REF: ${{ github.ref }}"
-          echo "Github_HEAD_REF: ${{ github.ead_ref }}"
+    steps:      
       - name: Checkout
         uses: actions/checkout@v2
       - name: Checkmarx One CLI Action
@@ -34,9 +30,10 @@ jobs:
           branch: ${{ github.head_ref }}
           additional_params:  --scan-types sast           
                               --sast-preset-name "Checkmarx Express"
+                              --tags "pr:${{ github.ref }}"
                               #--file-filter '!*README.md,!*app-hello-world*.js'
                               #--file-filter '!*README.md,!*app/*hello-world.js'
-                              --tags "pr:${{ github.ref }}"                             
+                                                       
 
              
           #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter '!*README.md,!app,!**/**/app/app-hello-world.js'
