@@ -3,18 +3,20 @@ name: Checkmarx One Scan
 on:
   pull_request:
     types:
-      #- opened
+      - opened
       - closed
     branches:
       - main
-      
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  
-jobs:
+
+jobs:  
   build:
+    env:
+      CURRENT_BRANCH: ${{ (github.event.pull_request.merged == true) && github.ref || github.head_ref }}
     runs-on: ubuntu-latest
-    steps:      
+    steps:             
       - name: Checkout
         uses: actions/checkout@v2
       - name: Checkmarx One CLI Action
@@ -25,7 +27,8 @@ jobs:
           base_uri: https://eu.ast.checkmarx.net
           cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
-          branch: ${{ github.ref }}
+          branch: ${{ env.CURRENT_BRANCH }}
+          #branch: ${{ github.ref }}
           #branch: ${{ github.head_ref }}
           additional_params:  --scan-types sast           
                               --sast-preset-name "Checkmarx Express"
