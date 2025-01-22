@@ -1,3 +1,4 @@
+// Hello from DEV !!! 
 var user = "JaneDoe";
 var password = "hello world!";
 console.log(password);
@@ -29,4 +30,3 @@ console.log(password + x);
 
 // This is a new comment
 // HEllo world!! 
-//HELLO FOM MAIN BRANCH!!!!!!!!!!!!!!!
