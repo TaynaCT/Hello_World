@@ -34,9 +34,10 @@ jobs:
           branch: ${{ github.head_ref }}
           additional_params:  --scan-types sast           
                               --sast-preset-name "Checkmarx Express"
+                              --tags "pr:${{ github.ref }}"
                               #--file-filter '!*README.md,!*app-hello-world*.js'
                               #--file-filter '!*README.md,!*app/*hello-world.js'
-                              --tags "pr:${{ github.ref }}"                             
+                                                       
 
              
           #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter '!*README.md,!app,!**/**/app/app-hello-world.js'
