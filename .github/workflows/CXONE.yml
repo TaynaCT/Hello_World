@@ -1,4 +1,7 @@
-#Documentation at https://checkmarx.com/resource/documents/en/34965-68707-quick-start-guide---checkmarx-one-github-action.html
+# Checkmarx Documentation can be found at:
+#  https://docs.checkmarx.com/en/34965-68702-checkmarx-one-github-actions.html
+# The additional_params field, you can specify any CLI arguments that you would like to apply to scans of this project.
+
 name: Checkmarx One Scan
 on:
   pull_request:
@@ -7,13 +10,12 @@ on:
       - closed
     branches:
       - main
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:  
   build:
     env:
+      #Checks if either the trgger even is a merge from a PR or not.
+      #If a pull request was closed as a result of being merged, it will be the fully qualified ref of the branch it was merged into, for example /refs/heads/main. Refer to https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request
+      #Else the env.CURRENT_BRANCH receives the github.head_ref
       CURRENT_BRANCH: ${{ (github.event.pull_request.merged == true) && github.ref || github.head_ref }}
     runs-on: ubuntu-latest
     steps:             
@@ -27,15 +29,12 @@ jobs:
           base_uri: https://eu.ast.checkmarx.net
           cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
           cx_client_secret: ${{ secrets.CXONE_CLENT_SECRET }}
-          branch: ${{ env.CURRENT_BRANCH }}
-          #branch: ${{ github.ref }}
-          #branch: ${{ github.head_ref }}
+          branch: ${{ env.CURRENT_BRANCH }}          
           additional_params:  --scan-types sast           
-                              --sast-preset-name "Checkmarx Express"
+                              --sast-preset-name "ASA Premium"
                               --tags "pr:${{ github.ref }}"
-                              #--file-filter '!*README.md,!*app-hello-world*.js'
-                              #--file-filter '!*README.md,!*app/*hello-world.js'
-                                                       
-
-             
-          #additional_params: --sast-incremental true, --sast-preset-name "Checkmarx Express", --scan-types sast, --file-filter '!*README.md,!app,!**/**/app/app-hello-world.js'
+                              --file-filter '!*README.md,!*app-hello-world*.js'
+                              --sast-incremental true
+                              #Configuring thresholds enables users to specify a threshold of vulnerability severities that, when found in a scan, will cause Checkmarx One to return a fail code for the scan.
+                              #Refer to https://docs.checkmarx.com/en/34965-68643-scan.html#UUID-a0bb20d5-5182-3fb4-3da0-0e263344ffe7_id_scancreate-Threshold
+                              --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5"
