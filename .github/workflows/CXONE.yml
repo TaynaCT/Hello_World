@@ -33,8 +33,6 @@ jobs:
           additional_params:  --sast-preset-name "ASA Premium"
                               --tags "pr:${{ github.ref }}"
                               --file-filter '!*README.md,!*app-hello-world*.js'
-                              --sast-incremental true
-                              --debug
-                            #--threshold 'sast-high=10; sast-medium=20; sca-high=10; containers-high=5'
+                              --threshold "sast-high=10; sast-medium=20; sca-high=10; containers-high=5"
                             #Configuring thresholds enables users to specify a threshold of vulnerability severities that, when found in a scan, will cause Checkmarx One to return a fail code for the scan.
                             #Refer to https://docs.checkmarx.com/en/34965-68643-scan.html#UUID-a0bb20d5-5182-3fb4-3da0-0e263344ffe7_id_scancreate-Threshold
