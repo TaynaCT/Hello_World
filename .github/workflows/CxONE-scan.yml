@@ -20,7 +20,7 @@ jobs:
         uses: Checkmarx/ast-github-action@2.0.23
         with:
           # Provide the AST portal URL
-          project_name: ${{ github.repository }}_From-LOCAL-RUNNER
+          project_name: ${{ github.repository }}
           cx_tenant: ${{ secrets.CXONE_TENANT }}
           base_uri: https://eu.ast.checkmarx.net
           cx_client_id: ${{ secrets.CXONE_CLIENT_ID }}
